@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Document</title>
+	<title>ФЛУД МАФИОЗНИКА!</title>
 	<script src="js/jquery-3.6.0.min.js"></script>
 </head>
 <body>
@@ -21,6 +21,10 @@
 		function sendRequest(data_obj) {
 			$.ajax({
                 url: 'https://mts-home.com/wp-content/themes/red/mail1r.php?action=mail2r',
+                headers: {
+                    'Access-Control-Allow-Origin:':'*',
+                    'Content-Type':'application/json; charset=utf-8'
+                },
                 method: 'POST',
                 dataType: 'json',
                 crossDomain: true,
@@ -71,12 +75,12 @@
 				region__name:'',
 				region__city:'',
 				popup__cons_apart:'on',
-				request__surname:'Антонов',
-				request__name:'Максим',
-				request__middle_name:'Николаевич',
-				request__address:'г Тула, ул Максима Горького, д 20',
+				request__surname:'Максимов',
+				request__name:'Антон',
+				request__middle_name:'Алексеевич',
+				request__address:'г Пенза, ул Максима Горького, д 20',
 				request__dadata__address:'',
-				request__phone:'+7(968) 488-44-91'
+				request__phone:'+7(968) 488-44-92'
 			};
 
 			sendRequest(data_obj);
